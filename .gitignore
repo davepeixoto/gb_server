@@ -41,7 +41,9 @@ build/Release
 node_modules/
 jspm_packages/
 dist
-
+temp
+tmp/*
+!tmp/.gitkeep
 # TypeScript v1 declaration files
 typings/
 
