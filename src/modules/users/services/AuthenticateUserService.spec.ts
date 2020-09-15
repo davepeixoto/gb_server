@@ -60,7 +60,7 @@ describe('AuthenticateUserService', () => {
       password: '32115',
     });
 
-    expect(response).rejects.toBeInstanceOf(AppError);
+    await expect(response).rejects.toBeInstanceOf(AppError);
   });
 
   it('should not be able to authenticate with wrong email', async () => {
@@ -88,7 +88,7 @@ describe('AuthenticateUserService', () => {
       password: '123456',
     });
 
-    expect(response).rejects.toBeInstanceOf(AppError);
+    await expect(response).rejects.toBeInstanceOf(AppError);
   });
 
   it('should not be able to authenticate with non existing user', async () => {
@@ -104,6 +104,6 @@ describe('AuthenticateUserService', () => {
       password: '123456',
     });
 
-    expect(response).rejects.toBeInstanceOf(AppError);
+    await expect(response).rejects.toBeInstanceOf(AppError);
   });
 });
