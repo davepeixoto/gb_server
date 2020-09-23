@@ -1,11 +1,9 @@
 import { injectable, inject } from 'tsyringe';
 
-// import User from '@modules/users/infra/typeorm/entities/User';
 import AppError from '@shared/errors/ApError';
 import IMailProvider from '@shared/container/providers/MailProvider/interfaces/IMailProvider';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import IUserTokensRepository from '@modules/users/repositories/IUserTokensRepository';
-// import IGenerateHash from '@modules/users/providers/HashProvider/interfaces/IGenerateHash';
 
 interface IRequest {
   email: string;
@@ -30,8 +28,21 @@ export default class SendForgotPasswordEmailService {
     if (!user) {
       throw new AppError('User does not exists');
     }
-    this.userTokensRepository.generate(user.id);
+    const { token } = await this.userTokensRepository.generate(user.id);
 
-    this.mailProvider.sendMail(email, 'Request for password recovery');
+    await this.mailProvider.sendMail({
+      to: {
+        name: user.name,
+        email: user.email,
+      },
+      subject: '[GO Barber] Password Recovery',
+      templateData: {
+        template: 'Hi, {{name}}:{{token}}',
+        variables: {
+          name: user.name,
+          token,
+        },
+      },
+    });
   }
 }

@@ -4,12 +4,14 @@
 - yarn add uuidv4
 - yarn add date-fns
 - yarn add typeorm pg   ##pg é  o driver do postgres
-- yarn add reflect-metadata    
-- yarn add bcryptjs   
+- yarn add reflect-metadata
+- yarn add bcryptjs
 - yarn add jsonwebtoken
 - yarn add multer
 - yarn add express-async-errors
-- yarn add tsyringe   
+- yarn add tsyringe
+- yarn add nodemailer
+= yarn add handlebars
 
 ## Development
 - yarn add typescript -D
@@ -19,21 +21,22 @@
 - yarn add @typescript-eslint/eslint-plugin@latest eslint-config-airbnb-base@latest eslint-plugin-import@^2.21.2 @typescript-eslint/parser@latest -D
 - yarn add eslint-import-resolver-typescript -D
 - yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
-- yarn add -D @types/bcryptjs 
-- yarn add -D @types/jsonwebtoken 
-- yarn add -D @types/multer   
-- yarn add tsconfig-paths -D   
+- yarn add -D @types/bcryptjs
+- yarn add -D @types/jsonwebtoken
+- yarn add -D @types/multer
+- yarn add tsconfig-paths -D
 - yarn add jest -D
 - yarn add ts-jest -D
-- yarn add @types/jest -D  
+- yarn add @types/jest -D
+- yarn add @types/nodemailer -D
 
 # Commands
 - yarn tsc --init
 - yarn eslint --init
 - yarn jest --init
 - yarn typeorm migration:create -n CreateAppointment
-- yarn typeorm migration:create -n CreateUsers     
-- yarn typeorm migration:create -n AlterAppointmentsField      
+- yarn typeorm migration:create -n CreateUsers
+- yarn typeorm migration:create -n AlterAppointmentsField
 - yarn typeorm migration:create -n AddAvatarFieldToUsers
 - yarn typeorm migration:run
 - yarn typeorm migration:revert
@@ -61,14 +64,14 @@
   https://www.notion.so/Repository-service-e-patterns-82419cceb11c4c4fbbc055ade7fb1ac5
 
 
-  Docker 
+  Docker
   https://www.notion.so/Instalando-Docker-6290d9994b0b4555a153576a1d97bee2
 
 
   MD5 Online
   http://www.md5.cz/
 
-  
+
 
 
 ## Specifications
@@ -91,18 +94,18 @@
 
 
   # Profile Update
-  
+
   **FR**
   - User should be able to update name, email and password;
 
   **BR**
   - User shouldn't be able to change email to a existent email
   - To updating password user must insert old password
-  - User must confirm new password; 
+  - User must confirm new password;
 
 
   # Provider painel
-  
+
   **FR**
   - Provider should be able to list all of appointments in specif day;
   - Provider should receive a notification when new appointmente has been created;
@@ -118,7 +121,7 @@
 
 
   # Services Schedules
-  
+
   **FR**
   - User should be able to list providers;
   - User should be able to list available days of providers
@@ -126,7 +129,7 @@
   - User should be able to create any appointment
 
   **NFR**
-  - Providers list should be saved on cache; 
+  - Providers list should be saved on cache;
 
   **BR**
   - Each appointment during 1 hour;
